@@ -1,7 +1,15 @@
 # Reserve Training Admission System (RTAS)
 예비군 훈련 입소/결산 위한 전자서명·명부 결산·식비/교통/훈련비 자동화 프로그램입니다.  
-PySide6(LGPL) 기반으로 개발되었으며, 전체 코드는 MIT License로 배포됩니다.
+- GUI 구성요소: PySide6(LGPL) + qtpy(MIT)
+- 엑셀 처리: pandas(BSD), openpyxl(MIT)
+- 이미지 처리(서명): Pillow(PIL)
+- Windows 연동: pywin32(MIT)
+- 파일/데이터 처리: Python 표준 라이브러리 사용
 
+PySide6(LGPL)은 GUI 프레임워크로서 단순 사용되며,
+애플리케이션 전체 라이선스(MIT License)에는 전파되지 않습니다.
+본 소프트웨어의 핵심 로직, 기능 구현부, 저장·처리·결산 기능은
+모두 MIT License 하에 배포됩니다.
 ---
 
 ##  주요 기능
@@ -53,3 +61,4 @@ PySide6(LGPL) 기반으로 개발되었으며, 전체 코드는 MIT License로 �
 ## License
 This project is released under the **MIT License**.  
 자세한 내용은 `LICENSE` 파일을 참고하십시오.
+
