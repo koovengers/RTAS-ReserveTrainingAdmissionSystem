@@ -67,7 +67,7 @@ class CheckMealTransportDialog(QDialog):
 
     def createSheet(self):
         base_dir = 'C:/임시폴더'
-        base_filename = '삭제필수'
+        base_filename = '임시파일'
         extension = '.xlsx'
         
         # 폴더가 존재하지 않으면 생성
@@ -358,7 +358,7 @@ class TrainingSummaryDialog(QDialog):
 
     def summarizeData(self):
         base_dir = 'C:/임시폴더'
-        base_filename = '삭제필수'
+        base_filename = '임시파일'
         extension = '.xlsx'
         
         # 폴더가 존재하지 않으면 생성
@@ -700,7 +700,7 @@ class SaveColumnSelectorDialog(QDialog):
 
     def createSheet(self):
         base_dir = 'C:/임시폴더'
-        base_filename = '삭제필수'
+        base_filename = '임시파일'
         extension = '.xlsx'
         
         # 폴더가 존재하지 않으면 생성
@@ -833,7 +833,7 @@ class SaveColumnSelectorDialog(QDialog):
         ws['AB8'] = '=COUNTIF($H$8:$H$5000,">=1")'
 
         ws['AC7'] = '훈련대상'
-        ws['AC8'] = '=SUM(AB8-AK8-AO8-AR8-AL8)'
+        ws['AC8'] = '=SUM(AB8-AK8-AL8-AM8-AP8)'
 
         ws['AD7'] = '입소인원'
         ws['AD8'] = '=COUNTIF($L$8:$L$5000,"입소")'
@@ -1350,7 +1350,7 @@ class MergeFilesDialog(QDialog):
 
     def saveDataAsExcel(self, df):
         base_dir = 'C:/임시폴더'
-        base_filename = '삭제필수'
+        base_filename = '임시파일'
         extension = '.xlsx'
         
         # 폴더가 존재하지 않으면 생성
@@ -2115,28 +2115,6 @@ class ColumnSelectorDialog(QDialog):
         return {label: comboBox.currentText() for label, comboBox in self.columnComboboxes.items() if comboBox.currentIndex() != -1}
 
 
-# 암호키와 json 파일 이름 입력을 위한 클래스
-class KeyAndFilenameDialog(QDialog):
-    def __init__(self, parent=None):
-        super(KeyAndFilenameDialog, self).__init__(parent)
-        self.setWindowTitle('파일 이름 입력')
-
-        self.layout = QVBoxLayout(self)
-
-        # 파일 이름 입력을 위한 레이블과 입력 필드
-        self.filenameLabel = QLabel("복구 데이터 파일 이름:")
-        self.layout.addWidget(self.filenameLabel)
-        self.filenameInput = QLineEdit(self)
-        self.layout.addWidget(self.filenameInput)
-
-        # 확인 버튼
-        self.okButton = QPushButton('확인', self)
-        self.okButton.clicked.connect(self.accept)
-        self.layout.addWidget(self.okButton)
-
-    def getInputs(self):
-        return None, self.filenameInput.text()  # 암호화 키를 무시
-
 
 # 메인 애플리케이션 클래스
 class SignatureApp(QWidget):
@@ -2214,7 +2192,7 @@ class SignatureApp(QWidget):
         self.mergeSignatureFilesButton.setGeometry(10, 90, 280, 30)
         self.mergeSignatureFilesButton.clicked.connect(self.openMergeDialog)
 
-        self.checkMealTransportButton = QPushButton('중식/교통비 확인(CMS)', frame2)
+        self.checkMealTransportButton = QPushButton('훈련 참가비 확인(CMS)', frame2)
         self.checkMealTransportButton.setGeometry(10, 130, 280, 30)
         self.checkMealTransportButton.clicked.connect(self.openCheckMealTransportDialog)
 
@@ -2227,7 +2205,7 @@ class SignatureApp(QWidget):
         self.saveTrainingSummaryButton.setGeometry(10, 10, 230, 30)
         self.saveTrainingSummaryButton.clicked.connect(self.openSaveTrainingSummaryDialog)
 
-        self.summarizeTrainingButton = QPushButton('훈련결산 종합하기(동미참)', frame3)
+        self.summarizeTrainingButton = QPushButton('훈련결산 종합하기(동원2형)', frame3)
         self.summarizeTrainingButton.setGeometry(10, 50, 230, 30)
         self.summarizeTrainingButton.clicked.connect(self.openTrainingSummaryDialog)
 
@@ -2788,7 +2766,7 @@ class SignatureApp(QWidget):
     # 전자서명 명부 저장하기 위한 메서드
     def saveFile(self):
         base_dir = 'C:/임시폴더'
-        base_filename = '삭제필수'
+        base_filename = '임시파일'
         extension = '.xlsx'
         
         # 폴더가 존재하지 않으면 생성
@@ -2938,7 +2916,7 @@ class SignatureApp(QWidget):
     # 전자서명 명부 저장하기(이미지 미포함) 관련 메서드
     def saveFileWithoutImages(self):
         base_dir = 'C:/임시폴더'
-        base_filename = '삭제필수'
+        base_filename = '임시파일'
         extension = '.xlsx'
         
         # 폴더가 존재하지 않으면 생성
